@@ -32,7 +32,7 @@ public class MotorMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (go.transform.position.z % 100 < 1 && go.transform.position.z % 100 > -1 && once)
+        if (go.transform.position.z % 100 < 10 && go.transform.position.z % 100 > -10 && once)
         {
             once = false;
             //new Object at i * 100 (vorrausschauend 2?)
@@ -52,7 +52,7 @@ public class MotorMove : MonoBehaviour
             }
             start = true;
         }
-        if (go.transform.position.z % 100 < 51 && go.transform.position.z % 100 > 49)
+        if (go.transform.position.z % 100 < 60 && go.transform.position.z % 100 > 40)
         {
             once = true;
         }
