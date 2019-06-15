@@ -85,13 +85,13 @@ public class MotorMove : MonoBehaviour
     {
         //fade out
         ani.SetInteger("fading", 1);
-        yield return new WaitForSecondsRealtime(0.55f);
+        yield return new WaitForSecondsRealtime(0.4f);
         //reset Bike
         go.transform.rotation = Rot;
         go.transform.position = new Vector3(0, go.transform.position.y, go.transform.position.z-respawn_offset);
         //fade in
         ani.SetInteger("fading", 0);
-        yield return new WaitForSecondsRealtime(0.4f);
+        yield return new WaitForSecondsRealtime(0.5f);
         fading = 0;
     }
 
