@@ -179,7 +179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &185454754 stripped
 GameObject:
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 185454754}
-  myPrefab: {fileID: 3905676968910592427, guid: 78eb1286a4fe51244812e6c62baa7540,
+  myPrefab: {fileID: 8140634971958203988, guid: 78eb1286a4fe51244812e6c62baa7540,
     type: 3}
   speed: 5
 --- !u!1 &534669902
@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ff2b3ee6f06aa0449ae461471fdddf7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ff2b3ee6f06aa0449ae461471fdddf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -445,6 +445,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140634971958203991, guid: 78eb1286a4fe51244812e6c62baa7540,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140634971958203991, guid: 78eb1286a4fe51244812e6c62baa7540,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78eb1286a4fe51244812e6c62baa7540, type: 3}
