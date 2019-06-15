@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Street
   - Scenes
+  - Fade
   layers:
   - Default
   - TransparentFX
