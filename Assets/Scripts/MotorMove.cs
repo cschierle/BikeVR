@@ -19,8 +19,10 @@ public class MotorMove : MonoBehaviour
     private GameObject[] del;
     private GameObject delete;
     private GameObject fade;
+    private GameObject fence;
     private Quaternion Rot;
     private int fading;
+    private int end;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,9 +61,14 @@ public class MotorMove : MonoBehaviour
                     if (del[j].transform.position.z + 50 < go.transform.position.z)
                     {
                         delete = del[j];
+                        Destroy(delete);
+                    }
+                    if (del[j].transform.position.z < go.transform.position.z)
+                    {
+                        fence = del[j];
+                        fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
                     }
                 }
-                Destroy(delete);
             }
             start = true;
         }
@@ -73,26 +80,42 @@ public class MotorMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Respawn")|| other.gameObject.CompareTag("Mailbox"))
+        if (other.gameObject.CompareTag("Respawn")|| other.gameObject.CompareTag("Mailbox") || other.gameObject.CompareTag("EndFence"))
         {
-            fading = 1;
+            if(other.gameObject.CompareTag("EndFence"))
+                end = 1;
             StartCoroutine(Fade());
-            
         }
     }
 
     IEnumerator Fade()
     {
         //fade out
+        fading = 1;
         ani.SetInteger("fading", 1);
         yield return new WaitForSecondsRealtime(0.4f);
         //reset Bike
         go.transform.rotation = Rot;
-        go.transform.position = new Vector3(0, go.transform.position.y, go.transform.position.z-respawn_offset);
-        //fade in
+        if (end == 1)
+        {
+            go.transform.position = new Vector3(0, go.transform.position.y, go.transform.position.z + 3);
+        }
+        else
+        {
+            if (go.transform.position.z % 100 < respawn_offset && go.transform.position.z % 100 > -15)
+            {
+                go.transform.position = new Vector3(0, go.transform.position.y, go.transform.position.z + 1);
+            }
+            else
+            {
+                go.transform.position = new Vector3(0, go.transform.position.y, go.transform.position.z - respawn_offset);
+            }
+        }
+            //fade in
         ani.SetInteger("fading", 0);
         yield return new WaitForSecondsRealtime(0.5f);
         fading = 0;
+        end = 0;
     }
 
     void Turn()
