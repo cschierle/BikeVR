@@ -73,7 +73,7 @@ public class MotorMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Respawn"))
+        if (other.gameObject.CompareTag("Respawn")|| other.gameObject.CompareTag("Mailbox"))
         {
             fading = 1;
             StartCoroutine(Fade());
