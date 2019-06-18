@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 4381131177931706454}
+  halo: {fileID: 7610019995441153277}
 --- !u!1 &4381131177931706454
 GameObject:
   m_ObjectHideFlags: 0
