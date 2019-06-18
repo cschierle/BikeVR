@@ -6,6 +6,7 @@ public class CarStraight : MonoBehaviour
 {
 
     public GameObject go;
+    public float speed;
     
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,16 @@ public class CarStraight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        go.transform.position = go.transform.position + new Vector3(0, 0, -0.25f);
+        go.transform.localPosition = go.transform.localPosition + new Vector3(0, 0, -speed);
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EndFence"))
+        {
             Destroy(go);
+        }
+            
     }
 }
