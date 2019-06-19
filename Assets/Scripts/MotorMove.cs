@@ -17,6 +17,7 @@ public class MotorMove : MonoBehaviour
     private bool start;
     private bool once;
     private GameObject[] del;
+    private GameObject[] delcars;
     private GameObject delete;
     private GameObject fade;
     private GameObject fence;
@@ -69,8 +70,18 @@ public class MotorMove : MonoBehaviour
                         fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
                     }
                 }
+                
             }
             start = true;
+            delcars = GameObject.FindGameObjectsWithTag("Cars");
+            for (int j = 0; j < delcars.Length; j++)
+            {
+                if (delcars[j].transform.position.z < i - 3 * 100)
+                {
+                    delete = delcars[j];
+                    Destroy(delete);
+                }
+            }
         }
         if (go.transform.position.z % 100 < 60 && go.transform.position.z % 100 > 40)
         {
@@ -80,7 +91,7 @@ public class MotorMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Respawn")|| other.gameObject.CompareTag("Mailbox") || other.gameObject.CompareTag("EndFence"))
+        if (other.gameObject.CompareTag("Respawn")|| other.gameObject.CompareTag("Mailbox") || other.gameObject.CompareTag("EndFence") || other.gameObject.CompareTag("Cars"))
         {
             if(other.gameObject.CompareTag("EndFence"))
                 end = 1;

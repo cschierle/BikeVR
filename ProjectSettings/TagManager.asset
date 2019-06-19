@@ -10,6 +10,7 @@ TagManager:
   - Mailbox
   - Flag
   - EndFence
+  - Cars
   layers:
   - Default
   - TransparentFX
