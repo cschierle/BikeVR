@@ -11,6 +11,7 @@ TagManager:
   - Flag
   - EndFence
   - Cars
+  - LevelChanger
   layers:
   - Default
   - TransparentFX
