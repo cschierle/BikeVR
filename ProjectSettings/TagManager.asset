@@ -12,6 +12,7 @@ TagManager:
   - EndFence
   - Cars
   - LevelChanger
+  - Newspaper
   layers:
   - Default
   - TransparentFX

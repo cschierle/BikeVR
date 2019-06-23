@@ -29,6 +29,10 @@ public class MailboxFlag : MonoBehaviour
             go.transform.localPosition = new Vector3(go.transform.localPosition.x - 0.25f, go.transform.localPosition.y , go.transform.localPosition.z + 0.25f);
             halo.SetActive(false);
             up = true;
+        } else if (other.gameObject.tag == "Newspaper")
+        {
+            // GameManager.score += 1
+            Destroy(other.gameObject);
         }
     }
 }
