@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +9,9 @@ public class MotorMove : MonoBehaviour
     public GameObject go;
     public GameObject myPrefab;
     public float speed;
+    public float respawn_offset;
     public float turnspeed;
     public Animator ani;
-    public float respawn_offset;
 
     private int i;
     private bool start;
@@ -137,3 +137,4 @@ public class MotorMove : MonoBehaviour
         go.GetComponent<Rigidbody>().MoveRotation(go.GetComponent<Rigidbody>().rotation * turnRotation);
     }
 }
+*/
