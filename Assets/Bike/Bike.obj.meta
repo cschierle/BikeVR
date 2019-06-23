@@ -61,6 +61,17 @@ ModelImporter:
     4300016: Saddle
     4300018: Wheel_a
     4300020: Wheel_b
+    6400000: a
+    6400002: b
+    6400004: c
+    6400006: Frame
+    6400008: Helm
+    6400010: Pedal_a
+    6400012: Pedal_b
+    6400014: Pedal_c
+    6400016: Saddle
+    6400018: Wheel_a
+    6400020: Wheel_b
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -92,7 +103,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.001
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

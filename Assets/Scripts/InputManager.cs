@@ -14,7 +14,7 @@ public static class InputManager
             return Input.GetAxis("Vertical");
         }
 
-        return Input.GetAxis("Horizontal");
+        return Input.GetAxis("Horizontal") * -1f;
 #endif
     }
 
