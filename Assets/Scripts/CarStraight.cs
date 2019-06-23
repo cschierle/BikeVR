@@ -18,12 +18,11 @@ public class CarStraight : MonoBehaviour
     void Update()
     {
         go.transform.localPosition = go.transform.localPosition + new Vector3(0, 0, -speed);
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EndFence"))
+        if (other.CompareTag("EndFence")||other.CompareTag("KillPlane"))
         {
             Destroy(go);
         }

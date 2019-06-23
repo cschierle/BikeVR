@@ -12,6 +12,7 @@ TagManager:
   - EndFence
   - Cars
   - LevelChanger
+  - KillPlane
   layers:
   - Default
   - TransparentFX
