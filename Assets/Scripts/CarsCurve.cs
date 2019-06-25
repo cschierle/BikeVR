@@ -41,7 +41,7 @@ public class CarsCurve : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EndFence"))
+        if (other.CompareTag("EndFence")|| other.CompareTag("KillPlane"))
             Destroy(go);
     }
 }
