@@ -14,16 +14,14 @@ public class MailboxFlag : MonoBehaviour
     void Start()
     {
         up = false;
-        int random = new System.Random().Next(0,101);
-        if (random % 2 == 0)
+        float random = UnityEngine.Random.Range(0.0f, 1.0f);
+        if (random > 0.5f)
         {
             halo.SetActive(true);
-            print("true");
         }
         else
         {
             halo.SetActive(false);
-            print("false");
         }
     }
     // Update is called once per frame
