@@ -16,11 +16,13 @@ public class PlayerController : MonoBehaviour
     public float TurnSpeed = 60f;
     public float TurnFactor = 2.5f;
 
+    [HideInInspector] public int score;
+    [HideInInspector] public int fading;
+
     private Rigidbody _rigidBody;
 
     private Quaternion Rot;
 
-    private int fading;
     private int end;
 
     private Animator ani;
@@ -32,12 +34,13 @@ public class PlayerController : MonoBehaviour
         ani = GetComponent<Animator>();
 
         Rot = Bike.transform.rotation;
+
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
             float wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
 
             if (InputManager.GetAxis("Horizontal") > 0)

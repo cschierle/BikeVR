@@ -238,11 +238,14 @@ MonoBehaviour:
   WheelAxis: {fileID: 331388106964179165}
   Handle: {fileID: 331388107919120064}
   HandleAxis: {fileID: 331388107729289755}
+  Bike: {fileID: 0}
+  respawn_offset: 0
   MaxRotation: 30
   Speed: 10
   TurnSpeed: 120
   TurnFactor: 2.5
   score: 0
+  fading: 0
 --- !u!1 &331388106301158506
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,13 +992,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4944657923771795764}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: -0.536, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 331388106885679255}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!1001 &718246404
 PrefabInstance:
   m_ObjectHideFlags: 0

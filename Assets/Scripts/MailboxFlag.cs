@@ -35,7 +35,7 @@ public class MailboxFlag : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Newspaper") && !up && halo.activeSelf)
         {
-            // GameController.setScore(score += 1)
+            player.score += 1;
             // Destroy(other.gameObject);
             flag.transform.Rotate(new Vector3(0, 1, 0), -90);
             flag.transform.localPosition = new Vector3(flag.transform.localPosition.x - 0.25f, flag.transform.localPosition.y, flag.transform.localPosition.z + 0.25f);
