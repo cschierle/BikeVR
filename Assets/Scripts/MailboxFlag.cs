@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MailboxFlag : MonoBehaviour
 {
 
-    public GameObject go;
+    public GameObject go; //Flag
     public GameObject halo;
 
     private bool up;
@@ -13,17 +14,25 @@ public class MailboxFlag : MonoBehaviour
     void Start()
     {
         up = false;
+        float random = UnityEngine.Random.Range(0.0f, 1.0f);
+        if (random > 0.5f)
+        {
+            halo.SetActive(true);
+        }
+        else
+        {
+            halo.SetActive(false);
+        }
     }
-
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Newspaper") && !up)
+        if (other.gameObject.CompareTag("Newspaper") && !up && halo.activeSelf)
         {
             // GameController.setScore(score += 1)
             // Destroy(other.gameObject);

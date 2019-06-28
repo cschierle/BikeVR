@@ -57,15 +57,6 @@ public class GameControlls : MonoBehaviour
 
             }
             start = true;
-            delcars = GameObject.FindGameObjectsWithTag("Cars");
-            for (int j = 0; j < delcars.Length; j++)
-            {
-                if (delcars[j].transform.position.z < i - 3 * 100)
-                {
-                    delete = delcars[j];
-                    Destroy(delete);
-                }
-            }
         }
         if (go.transform.position.z % 100 < 60 && go.transform.position.z % 100 > 40)
         {
