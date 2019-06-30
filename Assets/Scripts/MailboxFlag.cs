@@ -10,7 +10,8 @@ public class MailboxFlag : MonoBehaviour
     public GameObject halo;
     public PlayerController player;
 
-    private bool up;
+    [HideInInspector] public bool up;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class MailboxFlag : MonoBehaviour
         if (other.gameObject.CompareTag("Newspaper") && !up && halo.activeSelf)
         {
             player.score += 1;
-            // Destroy(other.gameObject);
+            player.scoreText.text = "" + player.score;
             flag.transform.Rotate(new Vector3(0, 1, 0), -90);
             flag.transform.localPosition = new Vector3(flag.transform.localPosition.x - 0.25f, flag.transform.localPosition.y, flag.transform.localPosition.z + 0.25f);
             halo.SetActive(false);

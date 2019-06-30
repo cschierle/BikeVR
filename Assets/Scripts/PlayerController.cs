@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Handle;
     public GameObject HandleAxis;
     public GameObject Bike;
+    public Text scoreText;
 
     public float respawn_offset;
     public float MaxRotation = 30f;
