@@ -54,8 +54,11 @@ public class CarsCurve : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (once)
+        if (once && other.CompareTag("Cars"))
+        {
             StartCoroutine(Anfahren());
+            print("colcurve");
+        }
     }
 
     IEnumerator Anfahren()

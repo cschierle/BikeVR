@@ -29,8 +29,12 @@ public class CarStraight : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (once)
+        if (once && other.CompareTag("Cars"))
+        {
+
             StartCoroutine(Anfahren());
+            print("colstr");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,6 +47,7 @@ public class CarStraight : MonoBehaviour
         if (other.CompareTag("Cars"))
         {
             start = false;
+            print("colstr");
         }
     }
 
