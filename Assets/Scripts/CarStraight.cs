@@ -10,7 +10,6 @@ public class CarStraight : MonoBehaviour
     public float speed;
 
     private bool start;
-    System.Random rnd = new System.Random();
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +20,10 @@ public class CarStraight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(start)
+        if (start)
+        {
             go.transform.localPosition = go.transform.localPosition + new Vector3(0, 0, -speed);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +41,7 @@ public class CarStraight : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSecondsRealtime(rnd.Next(1,8));
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(1.0f, 8.0f));
         start = true;
     }
 }

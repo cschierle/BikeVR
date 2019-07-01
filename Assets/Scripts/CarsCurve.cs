@@ -10,8 +10,6 @@ public class CarsCurve : MonoBehaviour
 
     private bool start;
     private int count;
-
-    System.Random rnd = new System.Random();
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +20,7 @@ public class CarsCurve : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSecondsRealtime(rnd.Next(1, 8));
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(1.0f, 8.0f));
         start = true;
     }
 
