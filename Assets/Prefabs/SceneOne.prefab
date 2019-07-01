@@ -8011,7 +8011,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1660880632647677523
 MonoBehaviour:
@@ -13996,6 +13996,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14051,11 +14056,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (9)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &1031333070688883159 stripped
@@ -14071,6 +14071,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14126,11 +14131,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (8)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &204220291535137940 stripped
@@ -14146,6 +14146,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14201,11 +14206,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (4)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &2088588699511186089 stripped
@@ -14221,6 +14221,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14275,11 +14280,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
@@ -14360,11 +14360,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6500002, guid: 6f4bc5fd70ff2aa479422ee0d98b0809, type: 3}
+    - target: {fileID: 6500000, guid: 6f4bc5fd70ff2aa479422ee0d98b0809, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6500000, guid: 6f4bc5fd70ff2aa479422ee0d98b0809, type: 3}
+    - target: {fileID: 6500002, guid: 6f4bc5fd70ff2aa479422ee0d98b0809, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -14383,6 +14383,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14438,11 +14443,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &6519418307123748388 stripped
@@ -14458,6 +14458,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14513,11 +14518,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (3)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &6014661241710348452 stripped
@@ -14533,6 +14533,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14588,11 +14593,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (7)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &6055763393957363925 stripped
@@ -14608,6 +14608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14663,11 +14668,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (5)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &7866968190757900943 stripped
@@ -14683,6 +14683,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14738,11 +14743,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}
 --- !u!4 &9022851067403535970 stripped
@@ -14758,6 +14758,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4904124583457939240}
     m_Modifications:
+    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: MailBox_Light (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 658386260677609231, guid: b8ddadafd51ae1048972bef7fbd02cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14812,11 +14817,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 658386260677122863, guid: b8ddadafd51ae1048972bef7fbd02cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: MailBox_Light (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ddadafd51ae1048972bef7fbd02cbb, type: 3}

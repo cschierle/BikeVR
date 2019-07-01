@@ -24,7 +24,6 @@ public class CarS2 : MonoBehaviour
         {
             if (go.transform.position.x < -85 || go.transform.position.x > 70)
             {
-                print(go + ";" +go.transform.position.x);
                 go.transform.Rotate(new Vector3(0, 1, 0), 180f);
                 if (go.transform.position.x < -80)
                     go.transform.position = go.transform.position + new Vector3(5, 0, 0);

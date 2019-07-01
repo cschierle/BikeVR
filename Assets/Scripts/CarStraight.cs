@@ -10,10 +10,12 @@ public class CarStraight : MonoBehaviour
     public float speed;
 
     private bool start;
+    private bool once;
     // Start is called before the first frame update
     void Start()
     {
         start = false;
+        once = false;
         StartCoroutine(Wait());
     }
 
@@ -25,6 +27,11 @@ public class CarStraight : MonoBehaviour
             go.transform.localPosition = go.transform.localPosition + new Vector3(0, 0, -speed);
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (once)
+            StartCoroutine(Anfahren());
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,13 +42,20 @@ public class CarStraight : MonoBehaviour
 
         if (other.CompareTag("Cars"))
         {
-            go.transform.localPosition = go.transform.localPosition + new Vector3(0, 0, 15);
+            start = false;
         }
     }
 
     IEnumerator Wait()
     {
         yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(1.0f, 8.0f));
+        start = true;
+        once = true;
+    }
+
+    IEnumerator Anfahren()
+    {
+        yield return new WaitForSecondsRealtime(1f);
         start = true;
     }
 }
