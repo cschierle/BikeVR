@@ -3,25 +3,22 @@ using UnityEngine;
 using UnityEngine.XR;
 
 public class VRToggleScript : MonoBehaviour
-{
-    public bool ToggleVRMode = false;
-    
+{    
     void Start()
     {
-        if (ToggleVRMode)
-        {
-            StartCoroutine(LoadDevice("cardboard"));
-        }
-        else
-        {
-            StartCoroutine(LoadDevice("None"));
-        }
+#if UNITY_ANDROID && !UNITY_EDITOR
+        Debug.Log("lol");
+        StartCoroutine(LoadDevice("cardboard"));
+#endif
     }
 
     private IEnumerator LoadDevice(string newDevice)
     {
-        XRSettings.LoadDeviceByName(newDevice);
-        yield return null;
-        XRSettings.enabled = true;
+        if(!XRSettings.loadedDeviceName.Equals("cardboard"))
+        {
+            XRSettings.LoadDeviceByName(newDevice);
+            yield return null;
+            XRSettings.enabled = true;
+        }
     }
 }

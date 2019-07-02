@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BLEManagerMock : MonoBehaviour, IBLEManager
 {
-    public float Interval = 0.1f;
+    public float Interval = 0.5f;
 
     private List<Characteristic> _characteristics;
     private IRCharacteristic _irCharacteristic;

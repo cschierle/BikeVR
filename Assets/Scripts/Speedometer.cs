@@ -21,11 +21,16 @@ public class Speedometer : MonoBehaviour
     {
         RPM = 0f;
         Speed = 0f;
-        _bleManager = GameObject.FindGameObjectWithTag("BLEManager").GetComponent<IBLEManager>();
         _prevValue = 0;
         _prevTime = 0f;
+
+#if UNITY_EDITOR
+        _bleManager = GameObject.FindGameObjectWithTag("EditorOnly").GetComponent<IBLEManager>();
+#elif UNITY_ANDROID && !UNITY_EDITOR
+        _bleManager = GameObject.FindGameObjectWithTag("BLEManager").GetComponent<IBLEManager>();
+#endif
     }
-    
+
     void Update()
     {
         var now = Time.time;

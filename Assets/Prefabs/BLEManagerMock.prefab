@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3333993506190748140}
   m_Layer: 0
   m_Name: BLEManagerMock
-  m_TagString: BLEManager
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06d18845d525ef4f9fd848a388126e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interval: 0.1
+  Interval: 0.5

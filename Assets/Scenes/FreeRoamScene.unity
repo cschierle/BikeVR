@@ -34890,7 +34890,7 @@ PrefabInstance:
     - target: {fileID: 331388106294206691, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_Drag
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
@@ -34901,6 +34901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: CanThrowNewspaper
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: Speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f29f10cf4e2f94caa10c40704a454b, type: 3}
@@ -39630,6 +39635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765524639748152675, guid: e9e6dafc2efe3794991dd56e5c8e5efb,
+        type: 3}
+      propertyPath: Diameter
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e6dafc2efe3794991dd56e5c8e5efb, type: 3}

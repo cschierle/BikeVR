@@ -8,7 +8,7 @@ public static class InputManager
     {
 #if UNITY_EDITOR
         return Input.GetAxis(orientation);
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID && !UNITY_EDITOR
         if (orientation.Equals("Horizontal", System.StringComparison.InvariantCultureIgnoreCase))
         {
             return Input.GetAxis("Vertical");
@@ -23,7 +23,7 @@ public static class InputManager
 #if UNITY_EDITOR
         return Input.GetButtonDown("Jump");
         //return false;
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID && !UNITY_EDITOR
         return (Input.GetKeyDown("joystick 1 button 2"));
 #endif
     }
@@ -33,7 +33,7 @@ public static class InputManager
 #if UNITY_EDITOR
         return Input.GetButton("Jump");
         //return false;
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID && !UNITY_EDITOR
         return (Input.GetKey("joystick 1 button 2"));
 #endif
     }
@@ -43,7 +43,7 @@ public static class InputManager
 #if UNITY_EDITOR
         return Input.GetButtonUp("Jump");
         //return false;
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID && !UNITY_EDITOR
         return (Input.GetKeyUp("joystick 1 button 2"));
 #endif
     }
@@ -52,7 +52,7 @@ public static class InputManager
     {
 #if UNITY_EDITOR
         return Input.GetButtonDown("Fire1");
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID && !UNITY_EDITOR
         return (Input.GetKeyDown("joystick 1 button 4"));
 #endif
     }

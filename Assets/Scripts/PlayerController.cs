@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public float respawn_offset;
     public float MaxRotation = 30f;
-    public float Speed = 5f;
+    public float SpeedFactor = 5f;
     public float TurnSpeed = 60f;
     public float TurnFactor = 2.5f;
     public float ThrowDeadAngle = 0.3f;
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
                 Quaternion deltaRotation = Quaternion.Euler(new Vector3(0f, wheelAngle, 0f) * TurnFactor * Time.deltaTime);
                 _rigidBody.MoveRotation(_rigidBody.rotation * deltaRotation);
 
-                Vector3 movementVec = gameObject.transform.forward * InputManager.GetAxis("Vertical") * _speedometer.Speed * Time.deltaTime;
+                Vector3 movementVec = gameObject.transform.forward * SpeedFactor * _speedometer.Speed * Time.deltaTime;
                 _rigidBody.MovePosition(_rigidBody.position + movementVec);
             }
 
