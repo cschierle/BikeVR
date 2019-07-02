@@ -28,16 +28,16 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int fading;
 
     private Rigidbody _rigidBody;
-
     private Quaternion Rot;
-    
     private Animator ani;
+    private Speedometer _speedometer;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidBody = gameObject.GetComponent<Rigidbody>();
         ani = GetComponent<Animator>();
+        _speedometer = GameObject.FindGameObjectWithTag("Speedometer").GetComponent<Speedometer>();
 
         Rot = Bike.transform.rotation;
 
@@ -108,14 +108,13 @@ public class PlayerController : MonoBehaviour
         wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
         if (fading == 0)
         {
-            // Needs to be modified for speed metric
-            if (InputManager.GetAxis("Vertical") > 0)
+            if (InputManager.GetAxis("Vertical") > 0 || _speedometer.Speed > 0f)
             {
                 // Turn wheel forward
                 Quaternion deltaRotation = Quaternion.Euler(new Vector3(0f, wheelAngle, 0f) * TurnFactor * Time.deltaTime);
                 _rigidBody.MoveRotation(_rigidBody.rotation * deltaRotation);
 
-                Vector3 movementVec = gameObject.transform.forward * InputManager.GetAxis("Vertical") * Speed * Time.deltaTime;
+                Vector3 movementVec = gameObject.transform.forward * InputManager.GetAxis("Vertical") * _speedometer.Speed * Time.deltaTime;
                 _rigidBody.MovePosition(_rigidBody.position + movementVec);
             }
 
