@@ -22,9 +22,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidBody;
 
     private Quaternion Rot;
-
-    private int end;
-
+    
     private Animator ani;
 
     // Start is called before the first frame update
@@ -116,41 +114,46 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Respawn") || other.gameObject.CompareTag("Mailbox") || other.gameObject.CompareTag("EndFence") || other.gameObject.CompareTag("Cars"))
+        if (other.gameObject.CompareTag("Respawn") || other.gameObject.CompareTag("Mailbox") || other.gameObject.CompareTag("Cars"))
         {
-            if (other.gameObject.CompareTag("EndFence"))
-                end = 1;
-            StartCoroutine(Fade());
+            var position = new Vector3(0f, 0f, 0f);
+
+            if (Bike.transform.position.z % 100 < respawn_offset && Bike.transform.position.z % 100 > -15)
+            {
+                position = new Vector3(0, Bike.transform.position.y, Bike.transform.position.z + 1);
+            }
+            else
+            {
+                position = new Vector3(0, Bike.transform.position.y, Bike.transform.position.z - respawn_offset);
+            }
+
+            ResetToPosition(position);
+        }
+        else if (other.gameObject.CompareTag("EndFence"))
+        {
+            ResetToPosition(new Vector3(0, Bike.transform.position.y, Bike.transform.position.z + 3));
         }
     }
+    
+    public void ResetToPosition(Vector3 position)
+    {
+        StartCoroutine(Fade(position));
+    }
 
-    IEnumerator Fade()
+    IEnumerator Fade(Vector3 position)
     {
         //fade out
         fading = 1;
         ani.SetInteger("fading", 1);
         yield return new WaitForSecondsRealtime(0.4f);
+
         //reset Bike
         Bike.transform.rotation = Rot;
-        if (end == 1)
-        {
-            Bike.transform.position = new Vector3(0, Bike.transform.position.y, Bike.transform.position.z + 3);
-        }
-        else
-        {
-            if (Bike.transform.position.z % 100 < respawn_offset && Bike.transform.position.z % 100 > -15)
-            {
-                Bike.transform.position = new Vector3(0, Bike.transform.position.y, Bike.transform.position.z + 1);
-            }
-            else
-            {
-                Bike.transform.position = new Vector3(0, Bike.transform.position.y, Bike.transform.position.z - respawn_offset);
-            }
-        }
+        Bike.transform.position = position;
+
         //fade in
         ani.SetInteger("fading", 0);
         yield return new WaitForSecondsRealtime(0.5f);
         fading = 0;
-        end = 0;
     }
 }

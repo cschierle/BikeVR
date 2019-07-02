@@ -14,6 +14,9 @@ TagManager:
   - LevelChanger
   - Newspaper
   - KillPlane
+  - TutorialManager
+  - RespawnLR
+  - RespawnRL
   layers:
   - Default
   - TransparentFX
