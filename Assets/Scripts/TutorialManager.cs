@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject Player;
     
     private float checkPointStreet = 90.0f;
+    private float checkPointEnd = 197.5f;
 
     private PlayerController playerController;
     private Vector3 carSpawnPointLR = new Vector3(-37f, 1f, 98.5f);
@@ -27,14 +28,9 @@ public class TutorialManager : MonoBehaviour
         SpawnNewCar(CarDirection.RightToLeft);
     }
     
-    void Update()
+    public void CollisionWithEndFence()
     {
-        
-    }
-
-    public void EndTutorial()
-    {
-
+        playerController.ResetToPosition(new Vector3(0f, Player.transform.position.y, checkPointEnd));
     }
 
     public void CollisionWithCar()

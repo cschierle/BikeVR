@@ -304,7 +304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1497543675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 1770685337}
   - component: {fileID: 1770685336}
   m_Layer: 5
-  m_Name: FadeCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -791,13 +791,16 @@ MonoBehaviour:
   Handle: {fileID: 331388107919120064}
   HandleAxis: {fileID: 331388107729289755}
   Bike: {fileID: 331388106294206701}
+  NewsPaperSpawn: {fileID: 4944657923771795764}
+  NewsPaperPrefab: {fileID: 474674119669241263, guid: 04a96ebaceba0454ab89601f1408fa55,
+    type: 3}
   scoreText: {fileID: 1427398091440685795}
   respawn_offset: 0
   MaxRotation: 30
   Speed: 10
   TurnSpeed: 120
   TurnFactor: 2.5
-  score: 0
+  score: 28
   fading: 0
 --- !u!95 &1258685697655022690
 Animator:
@@ -2079,7 +2082,6 @@ MonoBehaviour:
   MainPanel: {fileID: 567042115050234079}
   ConfirmPanel: {fileID: 1497543674}
   ConfirmText: {fileID: 552975151}
-  DelieveredAmount: {fileID: 1427398091440685795}
 --- !u!1001 &718246404
 PrefabInstance:
   m_ObjectHideFlags: 0
