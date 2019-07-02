@@ -8,7 +8,6 @@ public class GameControlls : MonoBehaviour
     public GameObject player;
     public GameObject scenePrefab;
     public GameObject scenePrefab2;
-    public GameObject newspaperPrefab;
 
     private int i;
     private bool start;
@@ -76,16 +75,6 @@ public class GameControlls : MonoBehaviour
         if (player.transform.position.z % 100 < 60 && player.transform.position.z % 100 > 40)
         {
             once = true;
-        }
-
-        if (playerController.fading == 0 && InputManager.GetFire1ButtonDown())
-        {
-            // spawn and throw newspaper
-            Transform newspaperSpawn = player.transform.Find("Main Camera").Find("NewspaperSpawn");
-            Rigidbody newspaper = Instantiate(newspaperPrefab, newspaperSpawn.position, newspaperSpawn.rotation).GetComponent<Rigidbody>();
-            newspaper.transform.Rotate(0f, 0f, 90f);
-            // effect size of applied force controlled by newspaper's drag property in inspector
-            newspaper.AddForce(newspaperSpawn.forward*1000);
         }
     }
 

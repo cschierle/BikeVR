@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Handle;
     public GameObject HandleAxis;
     public GameObject Bike;
+    public GameObject NewsPaperSpawn;
+    public GameObject NewsPaperPrefab;
     public Text scoreText;
 
     public float respawn_offset;
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         Rot = Bike.transform.rotation;
 
-        score = 0;
+        UpdateScore(0);
     }
 
     // Update is called once per frame
@@ -111,6 +113,15 @@ public class PlayerController : MonoBehaviour
                 Vector3 movementVec = gameObject.transform.forward * InputManager.GetAxis("Vertical") * Speed * Time.deltaTime;
                 _rigidBody.MovePosition(_rigidBody.position + movementVec);
             }
+            
+            if (InputManager.GetFire1ButtonDown())
+            {
+                // spawn and throw newspaper
+                Rigidbody newspaper = Instantiate(NewsPaperPrefab, NewsPaperSpawn.transform.position, NewsPaperSpawn.transform.rotation).GetComponent<Rigidbody>();
+                newspaper.transform.Rotate(0f, 0f, 90f);
+                // effect size of applied force controlled by newspaper's drag property in inspector
+                newspaper.AddForce(NewsPaperSpawn.transform.forward * 1000);
+            }
         }
     }
 
@@ -135,6 +146,13 @@ public class PlayerController : MonoBehaviour
         {
             ResetToPosition(new Vector3(0, Bike.transform.position.y, Bike.transform.position.z + 3));
         }
+    }
+
+    public void UpdateScore(int score)
+    {
+        Debug.Log(score);
+        this.score = score;
+        scoreText.text = score.ToString();
     }
     
     public void ResetToPosition(Vector3 position)

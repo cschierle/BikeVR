@@ -8,24 +8,32 @@ public class MailboxFlag : MonoBehaviour
 
     public GameObject flag;
     public GameObject halo;
-    public PlayerController player;
+    public bool TutorialLevel = false;
+
+    private PlayerController player;
 
     [HideInInspector] public bool up;
 
     // Start is called before the first frame update
     void Start()
     {
-        up = false;
-        float random = UnityEngine.Random.Range(0.0f, 1.0f);
-        if (random > 0.5f)
+        if (!TutorialLevel)
         {
-            halo.SetActive(true);
+            up = false;
+            float random = UnityEngine.Random.Range(0.0f, 1.0f);
+            if (random > 0.5f)
+            {
+                halo.SetActive(true);
+            }
+            else
+            {
+                halo.SetActive(false);
+            }
         }
-        else
-        {
-            halo.SetActive(false);
-        }
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,8 +44,7 @@ public class MailboxFlag : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Newspaper") && !up && halo.activeSelf)
         {
-            player.score += 1;
-            player.scoreText.text = "" + player.score;
+            player.UpdateScore(player.score + 1);
             flag.transform.Rotate(new Vector3(0, 1, 0), -90);
             flag.transform.localPosition = new Vector3(flag.transform.localPosition.x - 0.25f, flag.transform.localPosition.y, flag.transform.localPosition.z + 0.25f);
             halo.SetActive(false);

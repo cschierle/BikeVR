@@ -12,7 +12,6 @@ public class GameMenuManager : MonoBehaviour
     public GameObject MainPanel;
     public GameObject ConfirmPanel;
     public Text ConfirmText;
-    public Text DelieveredAmount;
 
     private MenuStates menuState;
     private FirstSelection firstSelection;
@@ -41,8 +40,7 @@ public class GameMenuManager : MonoBehaviour
 
         yesButton = ConfirmPanel.GetComponentsInChildren<Button>().FirstOrDefault(c => c.tag.Equals("YesButton"));
         noButton = ConfirmPanel.GetComponentsInChildren<Button>().FirstOrDefault(c => c.tag.Equals("NoButton"));
-
-        DelieveredAmount.text = "0";
+        
         menuState = MenuStates.MainPanel;
 
         Button1.onClick.AddListener(Button1OnClick);
@@ -125,10 +123,5 @@ public class GameMenuManager : MonoBehaviour
         {
             menuState = MenuStates.MainPanel;
         }
-    }
-
-    public void UpdateScore(int delievered)
-    {
-        DelieveredAmount.text = delievered.ToString();
     }
 }
