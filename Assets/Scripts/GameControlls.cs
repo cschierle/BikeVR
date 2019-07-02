@@ -7,6 +7,7 @@ public class GameControlls : MonoBehaviour
 
     public GameObject player;
     public GameObject scenePrefab;
+    public GameObject scenePrefab2;
     public GameObject newspaperPrefab;
 
     private int i;
@@ -17,6 +18,7 @@ public class GameControlls : MonoBehaviour
     private GameObject delete;
     private GameObject fade;
     private GameObject fence;
+    private GameObject scene;
     private Quaternion Rot;
     private PlayerController playerController;
     private int end;
@@ -29,6 +31,7 @@ public class GameControlls : MonoBehaviour
         once = true;
         Rot = player.transform.rotation;
         playerController = player.GetComponent<PlayerController>();
+        Init();
     }
 
     // Update is called once per frame
@@ -38,7 +41,17 @@ public class GameControlls : MonoBehaviour
         {
             once = false;
             //new Object at i * 100 (vorrausschauend 2?)
-            Instantiate(scenePrefab, new Vector3(0, 0, i * 100), Quaternion.identity);
+            float random = UnityEngine.Random.Range(0.0f, 2.0f);
+            
+            if (random < 1)
+            {
+                scene = scenePrefab;
+            }else if(random <= 2)
+            {
+                scene = scenePrefab2;
+            }
+
+            Instantiate(scene, new Vector3(0, 0, i * 100), Quaternion.identity);
             i++;
             if (start)
             {
@@ -74,5 +87,27 @@ public class GameControlls : MonoBehaviour
             // effect size of applied force controlled by newspaper's drag property in inspector
             newspaper.AddForce(newspaperSpawn.forward*1000);
         }
+    }
+
+    private void Init()
+    {
+        for(i = 0; i<2; i++)
+        {
+            float random = UnityEngine.Random.Range(0.0f, 2.0f);
+            if (random < 1)
+            {
+                scene = scenePrefab;
+            }
+            else if (random <= 2)
+            {
+                scene = scenePrefab2;
+            }
+            Instantiate(scene, new Vector3(0, 0, i * 100), Quaternion.identity);
+            if (i == 0)
+            {
+                fence = GameObject.FindGameObjectWithTag("Scenes");
+                fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
+            }
+        } 
     }
 }

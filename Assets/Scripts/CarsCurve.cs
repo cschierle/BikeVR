@@ -9,21 +9,22 @@ public class CarsCurve : MonoBehaviour
     public float speed;
 
     private bool start;
+    private bool once;
     private int count;
-
-    System.Random rnd = new System.Random();
     // Start is called before the first frame update
     void Start()
     {
         start = false;
+        once = false;
         count = 90;
         StartCoroutine(Wait());
     }
 
     IEnumerator Wait()
     {
-        yield return new WaitForSecondsRealtime(rnd.Next(1, 8));
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(1.0f, 8.0f));
         start = true;
+        once = true;
     }
 
     // Update is called once per frame
@@ -45,5 +46,24 @@ public class CarsCurve : MonoBehaviour
     {
         if (other.CompareTag("EndFence")|| other.CompareTag("KillPlane"))
             Destroy(go);
+        if(other.CompareTag("Cars")&& go.transform.rotation.y == 0)
+        {
+            start = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (once && other.CompareTag("Cars"))
+        {
+            StartCoroutine(Anfahren());
+            print("colcurve");
+        }
+    }
+
+    IEnumerator Anfahren()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        start = true;
     }
 }
