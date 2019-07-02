@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d194ea0ceb78694b93f9d800bc754b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNameToLoad: PaperboyVRScene
+  SceneNameToLoad: PaperboyScene
   HighLight: {fileID: 1758264219}
   Description: Paperboy VR
   TextOutput: {fileID: 1766624402}

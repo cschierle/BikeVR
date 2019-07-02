@@ -1,100 +1,134 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameMenuManager : MonoBehaviour
 {
-    public GameObject MenuCanvas;
+    public Button Button1;
+    public Button ExitButton;
+    public GameObject MainPanel;
+    public GameObject ConfirmPanel;
+    public Text ConfirmText;
+    public Text DelieveredAmount;
 
-    public List<Button> Buttons;
+    private MenuStates menuState;
+    private FirstSelection firstSelection;
+    private Button yesButton;
+    private Button noButton;
 
-    private int numButtons;
-    private int _selected;
+    public enum MenuStates
+    {
+        MainPanel,
+        ConfirmPanel
+    }
 
-    private bool _menuActive;
-    private bool _isAxisInUse;
+    public enum FirstSelection
+    {
+        Button1,
+        ExitGame
+    }
 
     void Start()
     {
-        _menuActive = false;
-        _isAxisInUse = false;
-        MenuCanvas.SetActive(_menuActive);
+        if (SceneManager.GetActiveScene().name.Equals("TutorialScene"))
+        {
+            Button1.gameObject.SetActive(true);
+            Button1.GetComponentInChildren<Text>().text = "Proceed to Game";
+        }
 
-        numButtons = Buttons.Count;
-        _selected = 0;
+        yesButton = ConfirmPanel.GetComponentsInChildren<Button>().FirstOrDefault(c => c.tag.Equals("YesButton"));
+        noButton = ConfirmPanel.GetComponentsInChildren<Button>().FirstOrDefault(c => c.tag.Equals("NoButton"));
+
+        DelieveredAmount.text = "0";
+        menuState = MenuStates.MainPanel;
+
+        Button1.onClick.AddListener(Button1OnClick);
+        ExitButton.onClick.AddListener(ExitGameOnClick);
+
+        yesButton.onClick.AddListener(() => ConfirmSelection(true));
+        noButton.onClick.AddListener(() => ConfirmSelection(false));
     }
 
     void Update()
     {
-        if (InputManager.GetRecenterButtonDown())
+        switch (menuState)
         {
-            _menuActive = !_menuActive;
-            _isAxisInUse = false;
-            _selected = 0;
-            MenuCanvas.SetActive(_menuActive);
-            UpdateGUI();
-        }
-
-        if (_menuActive)
-        {
-            if (InputManager.GetAxis("Vertical") != 0)
-            {
-                if (!_isAxisInUse)
+            case MenuStates.MainPanel:
                 {
-                    if (InputManager.GetAxis("Vertical") > 0)
-                    {
-                        _selected = _selected > 0 ? _selected - 1 : numButtons - 1;
-                        UpdateGUI();
-                    }
-                    else if (InputManager.GetAxis("Vertical") < 0)
-                    {
-                        _selected = _selected < numButtons - 1 ? _selected + 1 : 0;
-                        UpdateGUI();
-                    }
-                    _isAxisInUse = true;
+                    MainPanel.SetActive(true);
+                    ConfirmPanel.SetActive(false);
+                    break;
                 }
-            }
-            else if (InputManager.GetAxis("Vertical") == 0)
-            {
-                _isAxisInUse = false;
-            }
+            case MenuStates.ConfirmPanel:
+                {
+                    MainPanel.SetActive(false);
+                    ConfirmPanel.SetActive(true);
 
-            if (InputManager.GetFire1ButtonDown())
-            {
-                Buttons[_selected].onClick.Invoke();
-            }
+                    switch (firstSelection)
+                    {
+                        case FirstSelection.Button1:
+                            {
+                                if (SceneManager.GetActiveScene().name.Equals("TutorialScene"))
+                                {
+                                    ConfirmText.text = "End Tutorial?";
+                                }
+                                break;
+                            }
+                        case FirstSelection.ExitGame:
+                            {
+                                ConfirmText.text = "Exit to Main Menu?";
+                                break;
+                            }
+                    }
+                    break;
+                }
         }
-
     }
 
-    private void UpdateGUI()
+    private void Button1OnClick()
     {
-        for (int i = 0; i < numButtons; i++)
+        firstSelection = FirstSelection.Button1;
+        menuState = MenuStates.ConfirmPanel;
+    }
+
+    private void ExitGameOnClick()
+    {
+        firstSelection = FirstSelection.ExitGame;
+        menuState = MenuStates.ConfirmPanel;
+    }
+    
+    private void ConfirmSelection(bool confirm)
+    {
+        if (confirm)
         {
-            if (i == _selected)
+            switch (firstSelection)
             {
-                Buttons[i].GetComponent<Image>().color = Color.red;
-            }
-            else
-            {
-                Buttons[i].GetComponent<Image>().color = Color.white;
+                case FirstSelection.Button1:
+                    {
+                        if (SceneManager.GetActiveScene().name.Equals("TutorialScene"))
+                        {
+                            SceneManager.LoadScene("PaperboyScene");
+                        }
+                        break;
+                    }
+                case FirstSelection.ExitGame:
+                    {
+                        SceneManager.LoadScene("MainMenuScene");
+                        break;
+                    }
             }
         }
-    }
-
-    public void CloseMenu()
-    {
-        if (_menuActive)
+        else
         {
-            _menuActive = false;
-            MenuCanvas.SetActive(false);
+            menuState = MenuStates.MainPanel;
         }
     }
 
-    public void ExitToMainMenu()
+    public void UpdateScore(int delievered)
     {
-        SceneManager.LoadScene("MainMenuScene");
+        DelieveredAmount.text = delievered.ToString();
     }
 }

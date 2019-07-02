@@ -17,6 +17,8 @@ TagManager:
   - TutorialManager
   - RespawnLR
   - RespawnRL
+  - YesButton
+  - NoButton
   layers:
   - Default
   - TransparentFX
