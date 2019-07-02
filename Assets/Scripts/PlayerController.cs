@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Bike;
     public GameObject NewsPaperSpawn;
     public GameObject NewsPaperPrefab;
+    public GameObject MainCamera;
     public Text scoreText;
 
     public float respawn_offset;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 5f;
     public float TurnSpeed = 60f;
     public float TurnFactor = 2.5f;
+    public float ThrowDeadAngle = 0.3f;
 
     [HideInInspector] public int score;
     [HideInInspector] public int fading;
@@ -43,64 +45,65 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            float wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
+        float wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
+        
 
-            if (InputManager.GetAxis("Horizontal") > 0)
+        if (InputManager.GetAxis("Horizontal") > 0)
+        {
+            if (wheelAngle < MaxRotation)
             {
-                if (wheelAngle < MaxRotation)
+                float deltaAngle = TurnSpeed * Time.deltaTime;
+                if (wheelAngle + deltaAngle > MaxRotation)
                 {
-                    float deltaAngle = TurnSpeed * Time.deltaTime;
-                    if (wheelAngle + deltaAngle > MaxRotation)
-                    {
-                        deltaAngle = MaxRotation - wheelAngle;
-                    }
-
-                    // Turn wheel to the right
-                    Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.up, deltaAngle);
-                    Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.up, deltaAngle);
+                    deltaAngle = MaxRotation - wheelAngle;
                 }
+
+                // Turn wheel to the right
+                Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.up, deltaAngle);
+                Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.up, deltaAngle);
             }
-            else if (InputManager.GetAxis("Horizontal") < 0)
+        }
+        else if (InputManager.GetAxis("Horizontal") < 0)
+        {
+            if (wheelAngle > -MaxRotation)
             {
-                if (wheelAngle > -MaxRotation)
+                float deltaAngle = TurnSpeed * Time.deltaTime;
+                if (wheelAngle - deltaAngle < -MaxRotation)
                 {
-                    float deltaAngle = TurnSpeed * Time.deltaTime;
-                    if (wheelAngle - deltaAngle < -MaxRotation)
-                    {
-                        deltaAngle = MaxRotation + wheelAngle;
-                    }
-
-                    // Turn wheel to the left
-                    Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.down, deltaAngle);
-                    Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.down, deltaAngle);
+                    deltaAngle = MaxRotation + wheelAngle;
                 }
+
+                // Turn wheel to the left
+                Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.down, deltaAngle);
+                Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.down, deltaAngle);
             }
-            else
+        }
+        else
+        {
+            // Rotate wheel back to original angle
+            if (wheelAngle < 0f)
             {
-                // Rotate wheel back to original angle
-                if (wheelAngle < 0f)
+                float deltaAngle = TurnSpeed * Time.deltaTime;
+                if (wheelAngle + deltaAngle > 0f)
                 {
-                    float deltaAngle = TurnSpeed * Time.deltaTime;
-                    if (wheelAngle + deltaAngle > 0f)
-                    {
-                        deltaAngle = 0f - wheelAngle;
-                    }
-                    Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.up, deltaAngle);
-                    Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.up, deltaAngle);
+                    deltaAngle = 0f - wheelAngle;
                 }
-                else if (wheelAngle > 0f)
-                {
-                    float deltaAngle = TurnSpeed * Time.deltaTime;
-                    if (wheelAngle - deltaAngle < 0f)
-                    {
-                        deltaAngle = wheelAngle;
-                    }
-                    Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.down, deltaAngle);
-                    Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.down, deltaAngle);
-                }
+                Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.up, deltaAngle);
+                Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.up, deltaAngle);
             }
+            else if (wheelAngle > 0f)
+            {
+                float deltaAngle = TurnSpeed * Time.deltaTime;
+                if (wheelAngle - deltaAngle < 0f)
+                {
+                    deltaAngle = wheelAngle;
+                }
+                Wheel.transform.RotateAround(WheelAxis.transform.position, Vector3.down, deltaAngle);
+                Handle.transform.RotateAround(HandleAxis.transform.position, Vector3.down, deltaAngle);
+            }
+        }
 
-            wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
+        wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
         if (fading == 0)
         {
             // Needs to be modified for speed metric
@@ -113,8 +116,8 @@ public class PlayerController : MonoBehaviour
                 Vector3 movementVec = gameObject.transform.forward * InputManager.GetAxis("Vertical") * Speed * Time.deltaTime;
                 _rigidBody.MovePosition(_rigidBody.position + movementVec);
             }
-            
-            if (InputManager.GetFire1ButtonDown())
+
+            if (InputManager.GetFire1ButtonDown() && MainCamera.transform.rotation.x < ThrowDeadAngle)
             {
                 // spawn and throw newspaper
                 Rigidbody newspaper = Instantiate(NewsPaperPrefab, NewsPaperSpawn.transform.position, NewsPaperSpawn.transform.rotation).GetComponent<Rigidbody>();

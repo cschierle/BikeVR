@@ -794,12 +794,14 @@ MonoBehaviour:
   NewsPaperSpawn: {fileID: 4944657923771795764}
   NewsPaperPrefab: {fileID: 474674119669241263, guid: 04a96ebaceba0454ab89601f1408fa55,
     type: 3}
+  MainCamera: {fileID: 331388106885679248}
   scoreText: {fileID: 1427398091440685795}
   respawn_offset: 0
   MaxRotation: 30
   Speed: 10
   TurnSpeed: 120
   TurnFactor: 2.5
+  ThrowDeadAngle: 0.3
   score: 28
   fading: 0
 --- !u!95 &1258685697655022690
