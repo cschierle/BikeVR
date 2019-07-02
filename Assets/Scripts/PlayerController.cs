@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameObject MainCamera;
     public Text scoreText;
 
+    public bool CanThrowNewspaper = true;
+
     public float respawn_offset;
     public float MaxRotation = 30f;
     public float Speed = 5f;
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 _rigidBody.MovePosition(_rigidBody.position + movementVec);
             }
 
-            if (InputManager.GetFire1ButtonDown() && MainCamera.transform.rotation.x < ThrowDeadAngle)
+            if (CanThrowNewspaper && InputManager.GetFire1ButtonDown() && MainCamera.transform.rotation.x < ThrowDeadAngle)
             {
                 // spawn and throw newspaper
                 Rigidbody newspaper = Instantiate(NewsPaperPrefab, NewsPaperSpawn.transform.position, NewsPaperSpawn.transform.rotation).GetComponent<Rigidbody>();
@@ -153,7 +155,6 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        Debug.Log(score);
         this.score = score;
         scoreText.text = score.ToString();
     }

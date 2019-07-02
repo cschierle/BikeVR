@@ -1453,7 +1453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Use the back trigger to select a level
 --- !u!222 &1766624403
 CanvasRenderer:
   m_ObjectHideFlags: 0

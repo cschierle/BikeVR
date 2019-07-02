@@ -35,6 +35,6 @@ public class MenuItemScript : MonoBehaviour
     {
         _gazeStatus = false;
         HighLight.SetActive(false);
-        TextOutput.text = "";
+        TextOutput.text = "Use the back trigger to select a level";
     }
 }
