@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PaperboyScene.unity
     guid: 27225e8c1686f8e46bb724c15403ff65
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 37104f3cf9e0b93449bd0fdc0779a78c
   m_configObjects: {}
