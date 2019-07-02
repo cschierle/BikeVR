@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -43,11 +44,11 @@ public class GameMenuManager : MonoBehaviour
         
         menuState = MenuStates.MainPanel;
 
-        Button1.onClick.AddListener(Button1OnClick);
-        ExitButton.onClick.AddListener(ExitGameOnClick);
+        //Button1.onClick.AddListener(Button1OnClick);
+        //ExitButton.onClick.AddListener(ExitGameOnClick);
 
-        yesButton.onClick.AddListener(() => ConfirmSelection(true));
-        noButton.onClick.AddListener(() => ConfirmSelection(false));
+        //yesButton.onClick.AddListener(() => ConfirmSelection(true));
+        //noButton.onClick.AddListener(() => ConfirmSelection(false));
     }
 
     void Update()
@@ -58,12 +59,37 @@ public class GameMenuManager : MonoBehaviour
                 {
                     MainPanel.SetActive(true);
                     ConfirmPanel.SetActive(false);
+
+                    if (InputManager.GetFire1ButtonDown())
+                    {
+                        if (Button1.GetComponent<GameMenuItem>().GazedAt)
+                        {
+                            Button1OnClick();
+                        }
+                        else if (ExitButton.GetComponent<GameMenuItem>().GazedAt)
+                        {
+                            ExitGameOnClick();
+                        }
+                    }
+
                     break;
                 }
             case MenuStates.ConfirmPanel:
                 {
                     MainPanel.SetActive(false);
                     ConfirmPanel.SetActive(true);
+                    
+                    if (InputManager.GetFire1ButtonDown())
+                    {
+                        if (yesButton.GetComponent<GameMenuItem>().GazedAt)
+                        {
+                            ConfirmSelection(true);
+                        }
+                        else if (noButton.GetComponent<GameMenuItem>().GazedAt)
+                        {
+                            ConfirmSelection(false);
+                        }
+                    }
 
                     switch (firstSelection)
                     {
