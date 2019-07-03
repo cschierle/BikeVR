@@ -36,6 +36,7 @@ public class BLEManagerScript : MonoBehaviour, IBLEManager
         _state = state;
         _timeout = timeout;
     }
+#if UNITY_ANDROID && !UNITY_EDITOR
 
     void Awake()
     {
@@ -151,12 +152,7 @@ public class BLEManagerScript : MonoBehaviour, IBLEManager
             }
         }
     }
-
-    public T GetCharacteristic<T>() where T : Characteristic
-    {
-        return _characteristics.Find(c => c.GetType() == typeof(T)) as T;
-    }
-
+    
     public void PerformAction()
     {
         switch (_state)
@@ -306,5 +302,11 @@ public class BLEManagerScript : MonoBehaviour, IBLEManager
         {
             OutputLog.text = message;
         }
+    }
+#endif
+
+    public T GetCharacteristic<T>() where T : Characteristic
+    {
+        return _characteristics.Find(c => c.GetType() == typeof(T)) as T;
     }
 }
