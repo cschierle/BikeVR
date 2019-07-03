@@ -9,6 +9,7 @@ public class GameControlls : MonoBehaviour
     public GameObject scenePrefab;
     public GameObject scenePrefab2;
     public GameObject scenePrefab3;
+    public GameObject scenePrefab4;
 
     private int i;
     private bool start;
@@ -88,7 +89,7 @@ public class GameControlls : MonoBehaviour
     private void RandomScene()
     {
 
-        float random = UnityEngine.Random.Range(0.0f, 3.0f);
+        float random = UnityEngine.Random.Range(0.0f, 4.0f);
         if (random < 1)
         {
             scene = scenePrefab;
@@ -97,9 +98,13 @@ public class GameControlls : MonoBehaviour
         {
             scene = scenePrefab2;
         }
-        else if (random <= 3)
+        else if (random < 3)
         {
             scene = scenePrefab3;
+        }
+        else if (random <= 4)
+        {
+            scene = scenePrefab4;
         }
 
     }

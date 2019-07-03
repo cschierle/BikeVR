@@ -884,21 +884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: Bike
-      value: 
-      objectReference: {fileID: 914759409}
-    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: respawn_offset
-      value: 9.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 580549866}
     - target: {fileID: 331388106294206701, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_Name
@@ -914,6 +899,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: Bike
+      value: 
+      objectReference: {fileID: 914759409}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: respawn_offset
+      value: 9.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 580549866}
     - target: {fileID: 331388106294206690, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1147,6 +1147,8 @@ MonoBehaviour:
   scenePrefab2: {fileID: 3058570422062234297, guid: 58404d816e5e77b4db5482a2f958b354,
     type: 3}
   scenePrefab3: {fileID: 5948942090869208355, guid: 5cf0b0d5acc3fa640a86fff528d21aaf,
+    type: 3}
+  scenePrefab4: {fileID: 5865513303564911350, guid: ded1ea91042585e42b88e748a20924ea,
     type: 3}
 --- !u!4 &1708123104
 Transform:
