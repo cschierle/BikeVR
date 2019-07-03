@@ -150,6 +150,12 @@ public class PlayerController : MonoBehaviour
         {
             ResetToPosition(new Vector3(0, Bike.transform.position.y, Bike.transform.position.z + 3));
         }
+        else if (other.gameObject.CompareTag("Respawnother"))
+        {
+            var position = new Vector3(0f, 0f, 0f);
+            position = new Vector3(-5.5f, Bike.transform.position.y, Bike.transform.position.z + 1);
+            ResetToPosition(position);
+        }
     }
 
     public void UpdateScore(int score)
