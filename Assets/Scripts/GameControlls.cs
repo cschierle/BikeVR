@@ -8,6 +8,7 @@ public class GameControlls : MonoBehaviour
     public GameObject player;
     public GameObject scenePrefab;
     public GameObject scenePrefab2;
+    public GameObject scenePrefab3;
 
     private int i;
     private bool start;
@@ -40,15 +41,7 @@ public class GameControlls : MonoBehaviour
         {
             once = false;
             //new Object at i * 100 (vorrausschauend 2?)
-            float random = UnityEngine.Random.Range(0.0f, 2.0f);
-            
-            if (random < 1)
-            {
-                scene = scenePrefab;
-            }else if(random <= 2)
-            {
-                scene = scenePrefab2;
-            }
+            RandomScene();
 
             Instantiate(scene, new Vector3(0, 0, i * 100), Quaternion.identity);
             i++;
@@ -82,15 +75,7 @@ public class GameControlls : MonoBehaviour
     {
         for(i = 0; i<2; i++)
         {
-            float random = UnityEngine.Random.Range(0.0f, 2.0f);
-            if (random < 1)
-            {
-                scene = scenePrefab;
-            }
-            else if (random <= 2)
-            {
-                scene = scenePrefab2;
-            }
+            RandomScene();
             Instantiate(scene, new Vector3(0, 0, i * 100), Quaternion.identity);
             if (i == 0)
             {
@@ -98,5 +83,24 @@ public class GameControlls : MonoBehaviour
                 fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
             }
         } 
+    }
+
+    private void RandomScene()
+    {
+
+        float random = UnityEngine.Random.Range(0.0f, 3.0f);
+        if (random < 1)
+        {
+            scene = scenePrefab;
+        }
+        else if (random < 2)
+        {
+            scene = scenePrefab2;
+        }
+        else if (random <= 3)
+        {
+            scene = scenePrefab3;
+        }
+
     }
 }
