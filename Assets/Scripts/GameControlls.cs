@@ -11,7 +11,10 @@ public class GameControlls : MonoBehaviour
     public GameObject scenePrefab3;
     public GameObject scenePrefab4;
 
-    private int i;
+    public GameObject sceneStart;
+    public GameObject sceneFinish;
+
+    private int k;
     private bool start;
     private bool once;
     private GameObject[] del;
@@ -27,7 +30,7 @@ public class GameControlls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        i = 2;
+        k = 2;
         start = false;
         once = true;
         Rot = player.transform.rotation;
@@ -40,49 +43,63 @@ public class GameControlls : MonoBehaviour
     {
         if (player.transform.position.z % 100 < 10 && player.transform.position.z % 100 > -10 && once)
         {
-            once = false;
-            //new Object at i * 100 (vorrausschauend 2?)
-            RandomScene();
-
-            Instantiate(scene, new Vector3(0, 0, i * 100), Quaternion.identity);
-            i++;
-            if (start)
+            if (k < 6)
             {
-                del = GameObject.FindGameObjectsWithTag("Scenes");
-                for (int j = 0; j < del.Length; j++)
+                once = false;
+                //new Object at i * 100 (vorrausschauend 2?)
+                RandomScene();
+
+                Instantiate(scene, new Vector3(0, 0, k * 100), Quaternion.identity);
+                k++;
+                print(k);
+                if (start)
                 {
-                    if (del[j].transform.position.z + 50 < player.transform.position.z)
+                    del = GameObject.FindGameObjectsWithTag("Scenes");
+                    for (int j = 0; j < del.Length; j++)
                     {
-                        delete = del[j];
-                        Destroy(delete);
-                    }
-                    if (del[j].transform.position.z < player.transform.position.z)
-                    {
-                        fence = del[j];
-                        fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
+                        if (del[j].transform.position.z + 50 < player.transform.position.z)
+                        {
+                            delete = del[j];
+                            Destroy(delete);
+                        }
+                        if (del[j].transform.position.z < player.transform.position.z)
+                        {
+                            fence = del[j];
+                            fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
+                        }
                     }
                 }
+                start = true;
             }
-            start = true;
+            else
+            {
+
+                Instantiate(sceneFinish, new Vector3(0.75f, 8.35f, (k * 100) - 7.2f), Quaternion.Euler(0, 180, 0));// *Quaternion.identity);
+                once = false;
+                k++;
+            }
         }
 
         if (player.transform.position.z % 100 < 60 && player.transform.position.z % 100 > 40)
         {
-            once = true;
+            if(k<7)
+                once = true;
         }
     }
 
     private void Init()
     {
-        for(i = 0; i<2; i++)
+        for(int i = 0; i<2; i++)
         {
+            if(i==0)
+                Instantiate(sceneStart, new Vector3(-0.45f, 10.24f, -7), Quaternion.identity);
             RandomScene();
             Instantiate(scene, new Vector3(0, 0, i * 100), Quaternion.identity);
-            if (i == 0)
+            /*if (i == 0)
             {
                 fence = GameObject.FindGameObjectWithTag("Scenes");
                 fence.transform.Find("Objects").Find("Fences").Find("EndFence").gameObject.SetActive(true);
-            }
+            }*/
         } 
     }
 

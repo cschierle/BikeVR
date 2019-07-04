@@ -19,6 +19,8 @@ TagManager:
   - RespawnRL
   - YesButton
   - NoButton
+  - Respawnother
+  - Speedometer
   layers:
   - Default
   - TransparentFX
