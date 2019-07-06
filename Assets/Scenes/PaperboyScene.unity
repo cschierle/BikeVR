@@ -894,26 +894,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1427398091440685795, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: m_Text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: Bike
-      value: 
-      objectReference: {fileID: 914759409}
-    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: respawn_offset
-      value: 9.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 580549866}
     - target: {fileID: 331388106294206690, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -967,6 +947,31 @@ PrefabInstance:
     - target: {fileID: 331388106294206690, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: Bike
+      value: 
+      objectReference: {fileID: 914759409}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: respawn_offset
+      value: 9.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 580549866}
+    - target: {fileID: 331388106294206689, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: SpeedFactor
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427398091440685795, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: m_Text
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8088245487153385664, guid: 41f29f10cf4e2f94caa10c40704a454b,

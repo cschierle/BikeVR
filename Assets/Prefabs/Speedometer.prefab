@@ -43,5 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec11c0be8bc0e447894c18ac0924ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Resistance: 0.002
-  Diameter: 0.3
+  _minimalSpeed: 1
+  _accTime: 1
+  _decTime: 1
+  _minimalRevolutionCount: 5
+  _resetTime: 1
