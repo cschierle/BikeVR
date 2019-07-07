@@ -179,7 +179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 70, y: -30, z: 0}
 --- !u!4 &221033342 stripped
 Transform:
@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 3333993506190748141, guid: ab1b2f7c3713e544ca50a4f30b335f74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3333993506190748141, guid: ab1b2f7c3713e544ca50a4f30b335f74,
         type: 3}
@@ -753,7 +753,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!54 &1142402154
 Rigidbody:
@@ -894,6 +894,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1427398091440685795, guid: 41f29f10cf4e2f94caa10c40704a454b,
+        type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 331388106294206690, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -932,7 +937,7 @@ PrefabInstance:
     - target: {fileID: 331388106294206690, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 331388106294206690, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
@@ -968,11 +973,6 @@ PrefabInstance:
         type: 3}
       propertyPath: SpeedFactor
       value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427398091440685795, guid: 41f29f10cf4e2f94caa10c40704a454b,
-        type: 3}
-      propertyPath: m_Text
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8088245487153385664, guid: 41f29f10cf4e2f94caa10c40704a454b,
         type: 3}
@@ -1159,6 +1159,7 @@ MonoBehaviour:
     type: 3}
   sceneFinish: {fileID: 8696391765070558292, guid: dc10802f0daba114fa3ca5f8eb154bb1,
     type: 3}
+  length: 2
 --- !u!4 &1708123104
 Transform:
   m_ObjectHideFlags: 0
