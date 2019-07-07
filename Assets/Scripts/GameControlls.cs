@@ -21,7 +21,6 @@ public class GameControlls : MonoBehaviour
     public int length;
 
     [HideInInspector] public int mailboxes;
-    [HideInInspector] public int respawns;
 
     private int k;
     private float newspaper;
@@ -43,7 +42,6 @@ public class GameControlls : MonoBehaviour
         k = 2;
         mailboxes = 0;
         newspaper = 0;
-        respawns = 0;
         start = false;
         once = true;
         Rot = player.transform.rotation;
@@ -153,6 +151,6 @@ public class GameControlls : MonoBehaviour
     {
         endScreen.SetActive(true);
         float acc = (delivered/newspaper) *100;
-        endScreenStats.text = "Points: " + score + "\n Respawns: " + respawns + "\n \n Delivered Mailboxes: " + delivered + " / " + mailboxes + "\n Thrown Newspapers: " + newspaper + "\n Accuracy: " + acc + "%";
+        endScreenStats.text = "Points: " + score + "\n Respawns: " + playerController.respawns + "\n \n Delivered Mailboxes: " + delivered + " / " + mailboxes + "\n Thrown Newspapers: " + newspaper + "\n Accuracy: " + acc + "%";
     }
 }

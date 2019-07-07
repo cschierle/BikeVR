@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int score;
     [HideInInspector] public int delivered;
     [HideInInspector] public int fading;
+    [HideInInspector] public int respawns;
 
     private Rigidbody _rigidBody;
     private Quaternion Rot;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         Rot = Bike.transform.rotation;
 
         delivered = 0;
+        respawns = 0;
 
         if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
         {
@@ -59,7 +61,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // needed here to get actual amount of active mailboxes after GameControlls.Start() completed
-        if(isFirstUpdate && SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
+        if(isFirstUpdate)
         {
             UpdateScore(0);
             isFirstUpdate = false;
@@ -193,6 +195,9 @@ public class PlayerController : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
         {
             mailboxesText.text = delivered.ToString() + " / " + GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().mailboxes;
+        } else if (SceneManager.GetActiveScene().name.Equals("TutorialScene"))
+        {
+            mailboxesText.text = delivered.ToString() + " / " + GameObject.FindGameObjectsWithTag("Mailbox").Length;
         }
     }
 
@@ -208,7 +213,7 @@ public class PlayerController : MonoBehaviour
     {
         StartCoroutine(Fade(position));
 
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().respawns++;
+        respawns++;
     }
 
     IEnumerator Fade(Vector3 position)

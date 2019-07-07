@@ -911,6 +911,7 @@ MonoBehaviour:
   score: 28
   delivered: 0
   fading: 0
+  respawns: 0
 --- !u!95 &1258685697655022690
 Animator:
   serializedVersion: 3
