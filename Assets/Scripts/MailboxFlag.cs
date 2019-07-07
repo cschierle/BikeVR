@@ -26,6 +26,7 @@ public class MailboxFlag : MonoBehaviour
             if (random > 0.5f)
             {
                 halo.SetActive(true);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateMailboxes();
             }
             else
             {

@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float ThrowDeadAngle = 0.3f;
 
     [HideInInspector] public int score;
+    [HideInInspector] public int delivered;
     [HideInInspector] public int fading;
 
     private Rigidbody _rigidBody;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         Rot = Bike.transform.rotation;
 
+        delivered = 0;
         UpdateScore(0);
 
         if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
@@ -170,6 +172,7 @@ public class PlayerController : MonoBehaviour
     {
         this.score = score;
         scoreText.text = score.ToString();
+        delivered++;
     }
 
 
@@ -216,7 +219,7 @@ public class PlayerController : MonoBehaviour
             Destroy(delete[j]);
         }
 
-        gameControlls.DisplayEndScreen(score);
+        gameControlls.DisplayEndScreen(score, delivered);
         ani.SetInteger("fading", 0);
     }
 

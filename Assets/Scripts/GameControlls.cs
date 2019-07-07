@@ -21,6 +21,7 @@ public class GameControlls : MonoBehaviour
     public int length;
 
     private int k;
+    private int mailboxes;
     private bool start;
     private bool once;
     private GameObject[] del;
@@ -37,6 +38,7 @@ public class GameControlls : MonoBehaviour
     void Start()
     {
         k = 2;
+        mailboxes = 0;
         start = false;
         once = true;
         Rot = player.transform.rotation;
@@ -132,9 +134,14 @@ public class GameControlls : MonoBehaviour
 
     }
 
-    public void DisplayEndScreen(int score)
+    public void UpdateMailboxes()
+    {
+        mailboxes++;
+    }
+
+    public void DisplayEndScreen(int score, int delivered)
     {
         endScreen.SetActive(true);
-        endScreenStats.text = "Points: " + score;
+        endScreenStats.text = "Points: " + score + "\n Delivered Mailboxes: " + delivered + " / " + this.mailboxes;
     }
 }
