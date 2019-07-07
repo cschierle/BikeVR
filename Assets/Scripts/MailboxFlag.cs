@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MailboxFlag : MonoBehaviour
 {
 
     public GameObject flag;
     public GameObject halo;
+    public Text pointsText;
     public bool TutorialLevel = false;
 
     private PlayerController player;
@@ -44,6 +46,9 @@ public class MailboxFlag : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Newspaper") && !up && halo.activeSelf)
         {
+            pointsText.text = "+ 1";
+            pointsText.color = new Color(67f,87f,72f);
+            pointsText.GetComponentInParent<CanvasGroup>().alpha = 1f;
             player.UpdateScore(player.score + 1);
             flag.transform.Rotate(new Vector3(0, 1, 0), -90);
             flag.transform.localPosition = new Vector3(flag.transform.localPosition.x - 0.25f, flag.transform.localPosition.y, flag.transform.localPosition.z + 0.25f);
