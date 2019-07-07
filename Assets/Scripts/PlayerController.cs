@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // needed here to get actual amount of active mailboxes after GameControlls.Start() completed
-        if(isFirstUpdate)
+        if(isFirstUpdate && SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
         {
             UpdateScore(0);
             isFirstUpdate = false;
@@ -143,7 +143,11 @@ public class PlayerController : MonoBehaviour
                 newspaper.transform.Rotate(0f, 0f, 90f);
                 // effect size of applied force controlled by newspaper's drag property in inspector
                 newspaper.AddForce(NewsPaperSpawn.transform.forward * 1000);
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateNewspaper();
+
+                if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
+                {
+                    GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateNewspaper();
+                }
             }
         }
     }
@@ -185,7 +189,11 @@ public class PlayerController : MonoBehaviour
         {
             delivered++;
         }
-        mailboxesText.text = delivered.ToString() + " / " + GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().mailboxes;
+
+        if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
+        {
+            mailboxesText.text = delivered.ToString() + " / " + GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().mailboxes;
+        }
     }
 
 

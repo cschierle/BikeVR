@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MailboxFlag : MonoBehaviour
@@ -23,7 +24,10 @@ public class MailboxFlag : MonoBehaviour
         if (random > 0.5f)
         {
             active = true;
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateMailboxes();
+            if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
+            {
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateMailboxes();
+            }
         }
         else
         {
@@ -37,7 +41,6 @@ public class MailboxFlag : MonoBehaviour
         if (!TutorialLevel)
         {
             up = false;
-            float random = UnityEngine.Random.Range(0.0f, 1.0f);
             halo.SetActive(active);
         }
         else
