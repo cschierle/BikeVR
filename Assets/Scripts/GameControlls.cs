@@ -22,6 +22,7 @@ public class GameControlls : MonoBehaviour
 
     private int k;
     private int mailboxes;
+    private float newspaper;
     private bool start;
     private bool once;
     private GameObject[] del;
@@ -39,6 +40,7 @@ public class GameControlls : MonoBehaviour
     {
         k = 2;
         mailboxes = 0;
+        newspaper = 0;
         start = false;
         once = true;
         Rot = player.transform.rotation;
@@ -139,9 +141,16 @@ public class GameControlls : MonoBehaviour
         mailboxes++;
     }
 
-    public void DisplayEndScreen(int score, int delivered)
+    public void UpdateNewspaper()
+    {
+        newspaper++;
+        print(newspaper);
+    }
+
+    public void DisplayEndScreen(int score, float delivered)
     {
         endScreen.SetActive(true);
-        endScreenStats.text = "Points: " + score + "\n Delivered Mailboxes: " + delivered + " / " + this.mailboxes;
+        float acc = (delivered/newspaper) *100;
+        endScreenStats.text = "Points: " + score + "\n Delivered Mailboxes: " + delivered + " / " + mailboxes + "\n Accuracy: " + acc + "%";
     }
 }

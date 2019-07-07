@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
 
         Rot = Bike.transform.rotation;
 
-        delivered = 0;
         UpdateScore(0);
+        delivered = 0;
 
         if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
         {
@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour
                 newspaper.transform.Rotate(0f, 0f, 90f);
                 // effect size of applied force controlled by newspaper's drag property in inspector
                 newspaper.AddForce(NewsPaperSpawn.transform.forward * 1000);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateNewspaper();
             }
         }
     }
