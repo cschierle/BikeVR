@@ -13,8 +13,23 @@ public class MailboxFlag : MonoBehaviour
     public bool TutorialLevel = false;
 
     private PlayerController player;
+    private bool active;
 
     [HideInInspector] public bool up;
+
+    private void Awake()
+    {
+        float random = UnityEngine.Random.Range(0.0f, 1.0f);
+        if (random > 0.5f)
+        {
+            active = true;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateMailboxes();
+        }
+        else
+        {
+            active = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +38,7 @@ public class MailboxFlag : MonoBehaviour
         {
             up = false;
             float random = UnityEngine.Random.Range(0.0f, 1.0f);
-            if (random > 0.5f)
-            {
-                halo.SetActive(true);
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().UpdateMailboxes();
-            }
-            else
-            {
-                halo.SetActive(false);
-            }
+            halo.SetActive(active);
         }
         else
         {

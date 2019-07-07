@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject NewsPaperPrefab;
     public GameObject MainCamera;
     public Text scoreText;
+    public Text mailboxesText;
 
     public bool CanThrowNewspaper = true;
 
@@ -33,19 +34,19 @@ public class PlayerController : MonoBehaviour
     private Quaternion Rot;
     private Animator ani;
     private Speedometer _speedometer;
-
+    private bool isFirstUpdate;
     private GameControlls gameControlls;
 
     // Start is called before the first frame update
     void Start()
     {
+        isFirstUpdate = true;
         _rigidBody = gameObject.GetComponent<Rigidbody>();
         ani = GetComponent<Animator>();
         _speedometer = GameObject.FindGameObjectWithTag("Speedometer").GetComponent<Speedometer>();
 
         Rot = Bike.transform.rotation;
 
-        UpdateScore(0);
         delivered = 0;
 
         if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
@@ -57,6 +58,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // needed here to get actual amount of active mailboxes after GameControlls.Start() completed
+        if(isFirstUpdate)
+        {
+            UpdateScore(0);
+            isFirstUpdate = false;
+        }
+
         float wheelAngle = (Wheel.transform.localEulerAngles.y > 180) ? Wheel.transform.localEulerAngles.y - 360 : Wheel.transform.localEulerAngles.y;
         
 
@@ -173,7 +181,11 @@ public class PlayerController : MonoBehaviour
     {
         this.score = score;
         scoreText.text = score.ToString();
-        delivered++;
+        if (score > 0)
+        {
+            delivered++;
+        }
+        mailboxesText.text = delivered.ToString() + " / " + GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().mailboxes;
     }
 
 
@@ -187,6 +199,8 @@ public class PlayerController : MonoBehaviour
     public void ResetToPosition(Vector3 position)
     {
         StartCoroutine(Fade(position));
+
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>().respawns++;
     }
 
     IEnumerator Fade(Vector3 position)
