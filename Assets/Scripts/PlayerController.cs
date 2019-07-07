@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject NewsPaperSpawn;
     public GameObject NewsPaperPrefab;
     public GameObject MainCamera;
+    public GameObject Endscreen;
     public Text scoreText;
 
     public bool CanThrowNewspaper = true;
@@ -208,6 +209,7 @@ public class PlayerController : MonoBehaviour
             Destroy(delete[j]);
         }
 
+        Endscreen.SetActive(true);
         ani.SetInteger("fading", 0);
     }
 

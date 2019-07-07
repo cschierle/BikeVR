@@ -21,6 +21,7 @@ TagManager:
   - NoButton
   - Respawnother
   - Speedometer
+  - EndScreen
   layers:
   - Default
   - TransparentFX
