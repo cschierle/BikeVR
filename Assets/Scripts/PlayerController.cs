@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -45,7 +46,10 @@ public class PlayerController : MonoBehaviour
 
         UpdateScore(0);
 
-        gameControlls = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>();
+        if (SceneManager.GetActiveScene().name.Equals("PaperboyScene"))
+        {
+            gameControlls = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>();
+        }
     }
 
     // Update is called once per frame

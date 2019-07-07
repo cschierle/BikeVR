@@ -32,6 +32,11 @@ public class MailboxFlag : MonoBehaviour
                 halo.SetActive(false);
             }
         }
+        else
+        {
+            up = false;
+            halo.SetActive(true);
+        }
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
