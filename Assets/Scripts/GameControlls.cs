@@ -14,6 +14,8 @@ public class GameControlls : MonoBehaviour
     public GameObject sceneStart;
     public GameObject sceneFinish;
 
+    public int length;
+
     private int k;
     private bool start;
     private bool once;
@@ -43,7 +45,7 @@ public class GameControlls : MonoBehaviour
     {
         if (player.transform.position.z % 100 < 10 && player.transform.position.z % 100 > -10 && once)
         {
-            if (k < 6)
+            if (k < length)
             {
                 once = false;
                 //new Object at i * 100 (vorrausschauend 2?)
@@ -82,7 +84,7 @@ public class GameControlls : MonoBehaviour
 
         if (player.transform.position.z % 100 < 60 && player.transform.position.z % 100 > 40)
         {
-            if(k<7)
+            if(k<length+1)
                 once = true;
         }
     }

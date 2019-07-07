@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject NewsPaperSpawn;
     public GameObject NewsPaperPrefab;
     public GameObject MainCamera;
+    public GameObject Endscreen;
     public Text scoreText;
 
     public bool CanThrowNewspaper = true;
@@ -163,7 +164,15 @@ public class PlayerController : MonoBehaviour
         this.score = score;
         scoreText.text = score.ToString();
     }
-    
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            StartCoroutine(Ending());
+        }
+    }
     public void ResetToPosition(Vector3 position)
     {
         StartCoroutine(Fade(position));
@@ -186,4 +195,22 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         fading = 0;
     }
+
+    IEnumerator Ending()
+    {
+        //fade out
+        fading = 1;
+        ani.SetInteger("fading", 1);
+        yield return new WaitForSecondsRealtime(0.4f);
+
+        GameObject[] delete = GameObject.FindGameObjectsWithTag("Scenes");
+        for (int j = 0; j < delete.Length; j++)
+        {
+            Destroy(delete[j]);
+        }
+
+        Endscreen.SetActive(true);
+        ani.SetInteger("fading", 0);
+    }
+
 }
