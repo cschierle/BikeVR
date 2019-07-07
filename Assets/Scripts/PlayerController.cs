@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public GameObject NewsPaperSpawn;
     public GameObject NewsPaperPrefab;
     public GameObject MainCamera;
-    public GameObject Endscreen;
     public Text scoreText;
 
     public bool CanThrowNewspaper = true;
@@ -33,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private Animator ani;
     private Speedometer _speedometer;
 
+    private GameControlls gameControlls;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
         Rot = Bike.transform.rotation;
 
         UpdateScore(0);
+
+        gameControlls = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlls>();
     }
 
     // Update is called once per frame
@@ -209,7 +212,7 @@ public class PlayerController : MonoBehaviour
             Destroy(delete[j]);
         }
 
-        Endscreen.SetActive(true);
+        gameControlls.DisplayEndScreen(score);
         ani.SetInteger("fading", 0);
     }
 

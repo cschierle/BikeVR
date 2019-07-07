@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControlls : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameControlls : MonoBehaviour
 
     public GameObject sceneStart;
     public GameObject sceneFinish;
+
+    public GameObject endScreen;
+    public Text endScreenStats;
 
     public int length;
 
@@ -126,5 +130,11 @@ public class GameControlls : MonoBehaviour
             scene = scenePrefab4;
         }
 
+    }
+
+    public void DisplayEndScreen(int score)
+    {
+        endScreen.SetActive(true);
+        endScreenStats.text = "Points: " + score;
     }
 }
