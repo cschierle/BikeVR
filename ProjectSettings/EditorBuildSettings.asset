@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: 0fc2c2433f21bdc4a8816bf28e294d8e
   - enabled: 1
-    path: Assets/Scenes/FreeRoamScene.unity
-    guid: 74f01d7e38b273a499b58d430742226e
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 37104f3cf9e0b93449bd0fdc0779a78c
   - enabled: 1
     path: Assets/Scenes/PaperboyScene.unity
     guid: 27225e8c1686f8e46bb724c15403ff65
   - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
-    guid: 37104f3cf9e0b93449bd0fdc0779a78c
+    path: Assets/Scenes/FreeRoamScene.unity
+    guid: 74f01d7e38b273a499b58d430742226e
   m_configObjects: {}
